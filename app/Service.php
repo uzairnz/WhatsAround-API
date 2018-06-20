@@ -9,4 +9,9 @@ class Service extends Model
     protected $fillable  =  ['service_name', 'category', 'location', 'quotes'];
     public $timestamps = false;
     protected $primaryKey = "service_id";
+
+    public function Quote()
+    {
+        return $this->hasMany(Quote::class);
+    }
 }

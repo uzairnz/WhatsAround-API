@@ -88,3 +88,8 @@ Route::post('book', 'BookController@store');
 Route::put('book/{book_id}', 'BookController@update');
 
 Route::delete('book/{book_id}', 'BookController@destroy');
+
+
+/*
+ ServiceQuote Routes
+ */

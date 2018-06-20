@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Quote;
 use Illuminate\Http\Request;
 use App\Service;
 use Illuminate\Support\Facades\DB;
@@ -35,8 +36,12 @@ class ServiceController extends Controller
 
     public function show($id)
     {
-        $result = DB::Select('select * from services where service_id = ?', [$id]);
-
+       // $result = DB::Select('select * from services where service_id = ?', [$id]);
+          $result = DB::table('services')     // Fahad wala join
+              ->join ('quotes', function ($join){
+                  $join->on('services.service_id', '=' ,'quotes.service_id');
+              })
+              ->get();
         return $result;
 
     }
@@ -50,7 +55,7 @@ class ServiceController extends Controller
         $service = Service::find($service_id);
         // $user = DB::insert('insert into users (user_id) values (?)', [$user_id]);
         //     * changed default primary key for eloquent from id to user_id in model (User.php)
-
+        $service = Service::find($service_id);
         $service->service_name = $request->input('service_name');
         $service->category = $request->input('category');
         $service->location = $request->input('location');
