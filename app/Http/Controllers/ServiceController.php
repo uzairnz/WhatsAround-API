@@ -6,6 +6,7 @@ use App\Quote;
 use Illuminate\Http\Request;
 use App\Service;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\Return_;
 
 class ServiceController extends Controller
 {
@@ -36,12 +37,12 @@ class ServiceController extends Controller
 
     public function show($id)
     {
-       // $result = DB::Select('select * from services where service_id = ?', [$id]);
-          $result = DB::table('services')     // Fahad wala join
-              ->join ('quotes', function ($join){
-                  $join->on('services.service_id', '=' ,'quotes.service_id');
-              })
-              ->get();
+        $result = DB::Select('select * from services where service_id = ?', [$id]);
+//          $result = DB::table('services')     // Fahad wala join
+//              ->join ('quotes', function ($join){
+//                  $join->on('services.service_id', '=' ,'quotes.service_id');
+//              })->where('services.service_id', '=', $id)
+//              ->get();
         return $result;
 
     }
@@ -86,5 +87,25 @@ class ServiceController extends Controller
         return response()->json([
             'message' => 'Service deleted',
         ], 200);
+    }
+
+    public function blast()
+    {
+        $result = DB::table('services')     // Fahad wala join
+        ->join ('quotes', function ($join){
+            $join->on('services.service_id', '=' ,'quotes.service_id');
+        })
+            ->get();
+        Return $result;
+    }
+
+    public function blasting($id)
+    {
+        $result = DB::table('services')     // Fahad wala join
+        ->join ('quotes', function ($join){
+            $join->on('services.service_id', '=' ,'quotes.service_id');
+        })->where('services.service_id', '=', $id)
+            ->get();
+        return $result;
     }
 }

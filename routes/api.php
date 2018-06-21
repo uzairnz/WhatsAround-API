@@ -61,6 +61,14 @@ Route::put('service/{service_id}', 'ServiceController@update');
 
 Route::delete('service/{service_id}', 'ServiceController@destroy');
 
+/*
+    Additional routes for ServiceQuote Model in android
+*/
+Route::get('give', 'ServiceController@blast');
+Route::get('give/{service_id}', 'ServiceController@blasting');
+
+
+
 
 /*
  Service Routes
@@ -90,6 +98,3 @@ Route::put('book/{book_id}', 'BookController@update');
 Route::delete('book/{book_id}', 'BookController@destroy');
 
 
-/*
- ServiceQuote Routes
- */
