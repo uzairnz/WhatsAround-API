@@ -67,7 +67,7 @@ Route::delete('service/{service_id}', 'ServiceController@destroy');
 Route::get('give', 'ServiceController@blast');
 Route::get('give/{service_id}', 'ServiceController@blasting');
 
-
+Route::get('myquote/{partner_id}',"ServiceController@myquote");
 
 
 /*

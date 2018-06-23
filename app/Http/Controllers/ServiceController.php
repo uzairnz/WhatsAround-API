@@ -108,4 +108,16 @@ class ServiceController extends Controller
             ->get();
         return $result;
     }
+
+    public function myquote($id)
+    {
+        $result = DB::table('services')     // Fahad wala join
+        ->join ('quotes', function ($join){
+            $join->on('services.service_id', '=' ,'quotes.service_id');
+        })->where('quotes.partner_id', '=', $id)
+            ->get();
+        return $result;
+    }
+
+
 }
