@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('email');
             //$table->string('picture');    *Need a solution for this
             $table->integer('rating');
+            $table->rememberToken();
         });
     }
 
