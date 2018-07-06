@@ -47,7 +47,16 @@
             <tbody>
             @foreach ($users as $user)
                 <tr role="row" class="odd">
-                  <td class="sorting_1">{{ $user->username }}</td>
+                    <td class="hidden-xs">{{ $user->user_id }}</td>
+                    <td class="hidden-xs">{{ $user->password }}</td>
+                  <td class="sorting_1">{{ $user->name }}</td>
+                    <td class="hidden-xs">{{ $user->cnic_number }}</td>
+                    <td class="hidden-xs">{{ $user->contact_number }}</td>
+                    <td class="hidden-xs">{{ $user->email }}</td>
+                    <td class="hidden-xs">{{ $user->rating }}</td>
+
+
+
                   <td>{{ $user->email }}</td>
                   <td class="hidden-xs">{{ $user->firstname }}</td>
                   <td class="hidden-xs">{{ $user->lastname }}</td>
