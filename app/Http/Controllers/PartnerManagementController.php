@@ -67,16 +67,21 @@ class PartnerManagementController extends Controller
 //
 //        return redirect()->intended('/user-management');
 
-        $user = new Partner();
-        $user->password = $request->input('password');
-        $user->name = $request->input('name');
-        $user->cnic_number = $request->input('cnic_number');
-        $user->contact_number = $request->input('contact_number');
-        $user->email = $request->input('email');
-        $user->rating = $request->input('rating');
+        $partner = new Partner;
+        $partner->password = $request->input('password');
+        $partner->name = $request->input('name');
+        $partner->cnic_number = $request->input('cnic_number');
+        $partner->contact_number = $request->input('contact_number');
+        $partner->email = $request->input('email');
+        $partner->occupation = $request->input('occupation');
+        $partner->service_category = $request->input('service_category');
+        $partner->age = $request->input('age');
+        $partner->location = $request->input('location');
+        $partner->gender = $request->input('gender');
+        $partner->rating = $request->input('rating');
 
-        if ($user->save()) {
-            return redirect()->intended('/user-management');
+        if ($partner->save()) {
+            return redirect()->intended('/partner-management');
         }
     }
 
