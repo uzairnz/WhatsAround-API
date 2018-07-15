@@ -104,13 +104,13 @@ class PartnerManagementController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
+        $partner = Partner::find($id);
         // Redirect to user list if updating user wasn't existed
-        if ($user == null || count($user) == 0) {
-            return redirect()->intended('/user-management');
+        if ($partner == null || count($partner) == 0) {
+            return redirect()->intended('/partner-management');
         }
 
-        return view('users-mgmt/edit', ['user' => $user]);
+        return view('partner-mgmt/edit', ['partner' => $partner]);
     }
 
     /**
@@ -120,31 +120,34 @@ class PartnerManagementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $user_id)
+    public function update(Request $request, $partner_id)
     {
-        if (!$user_id) {
+        if (!$partner_id) {
             throw new HttpException(400, "Invalid id");
         }
 
-        $user = User::find($user_id);
+        $partner = Partner::find($partner_id);
         // $user = DB::insert('insert into users (user_id) values (?)', [$user_id]);
         //     * changed default primary key for eloquent from id to user_id in model (User.php)
 
-        $user->password = $request->input('password');
-        $user->name = $request->input('name');
-        $user->cnic_number = $request->input('cnic_number');
-        $user->contact_number = $request->input('contact_number');
-        $user->email = $request->input('email');
-        $user->rating = $request->input('rating');
+        $partner->password = $request->input('password');
+        $partner->name = $request->input('name');
+        $partner->cnic_number = $request->input('cnic_number');
+        $partner->contact_number = $request->input('contact_number');
+        $partner->email = $request->input('email');
+        $partner->occupation = $request->input('occupation');
+        $partner->service_category = $request->input('service_category');
+        $partner->age = $request->input('age');
+        $partner->location = $request->input('location');
+        $partner->gender = $request->input('gender');
+        $partner->rating = $request->input('rating');
 
 
-        if ($user->save()) {
-            return redirect()->intended('/user-management');
+        if ($partner->save()) {
+            return redirect()->intended('/partner-management');
         }
 
         throw new HttpException(400, "Invalid data");
-
-
     }
 
     /**
@@ -155,7 +158,7 @@ class PartnerManagementController extends Controller
      */
     public function destroy($id)
     {
-        User::where('partner_id', $id)->delete();
+        Partner::where('partner_id', $id)->delete();
         return redirect()->intended('/partner-management');
     }
 

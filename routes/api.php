@@ -44,6 +44,8 @@ Route::put('user/{user_id}', 'UserController@update');
 
 Route::delete('user/{user_id}', 'UserController@destroy');
 
+Route::get('user_login/{email}/{pass}', 'UserController@e_login');
+
 
 /*
  Partner Routes
@@ -57,6 +59,8 @@ Route::post('partner', 'PartnerController@store');
 Route::put('partner/{partner_id}', 'PartnerController@update');
 
 Route::delete('partner/{partner_id}', 'PartnerController@destroy');
+
+Route::get('partner_login/{email}/{pass}', 'PartnerController@e_login');
 
 
 /*

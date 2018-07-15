@@ -1,13 +1,13 @@
-@extends('users-mgmt.base')
+@extends('partner-mgmt.base')
 
 @section('action-content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Update user</div>
+                <div class="panel-heading">Update Partner</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('user-management.update', ['user_id' => $user->user_id]) }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('partner-management.update', ['partner_id' => $partner->partner_id]) }}">
                         <input type="hidden" name="_method" value="PATCH">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -63,6 +63,76 @@
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('occupation') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Occupation</label>
+
+                            <div class="col-md-6">
+                                <input id="occupation" type="text" class="form-control" name="occupation" value="{{ old('occupation') }}" required>
+
+                                @if ($errors->has('occupation'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('occupation') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('service_category') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Service Category</label>
+
+                            <div class="col-md-6">
+                                <input id="service_category" type="text" class="form-control" name="service_category" value="{{ old('service_category') }}" required>
+
+                                @if ($errors->has('service_category'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('service_category') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('age') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Age</label>
+
+                            <div class="col-md-6">
+                                <input id="age" type="text" class="form-control" name="age" value="{{ old('age') }}" required>
+
+                                @if ($errors->has('age'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('age') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('location') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Location</label>
+
+                            <div class="col-md-6">
+                                <input id="location" type="text" class="form-control" name="location" value="{{ old('location') }}" required>
+
+                                @if ($errors->has('location'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('location') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
+                            <label for="gender" class="col-md-4 control-label">Gender</label>
+
+                            <div class="col-md-6">
+                                <input id="gender" type="text" class="form-control" name="gender" value="{{ old('gender') }}" required>
+
+                                @if ($errors->has('gender'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('gender') }}</strong>
                                     </span>
                                 @endif
                             </div>

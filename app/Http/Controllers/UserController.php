@@ -95,7 +95,19 @@ class UserController extends Controller
         ], 200);
     }
 
+    public function e_login($id, $pass)
+    {
+        $result =  DB::select( DB::raw("SELECT * FROM users WHERE email = '$id' AND password = '$pass'") );
 
+        if($result!=NULL)
+        {
+            return $result;
+        }
+        else
+        {
+            // throw new HttpException(400, "Invalid Credentials");
+        }
+    }
 
 
 }

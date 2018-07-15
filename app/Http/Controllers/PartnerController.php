@@ -83,7 +83,7 @@ class PartnerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Partner  $partner
+     * @param  \App\Partner $partner
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -99,4 +99,19 @@ class PartnerController extends Controller
             'message' => 'Partner deleted',
         ], 200);
     }
+
+    public function e_login($id, $pass)
+    {
+        $result =  DB::select( DB::raw("SELECT * FROM partners WHERE email = '$id' AND password = '$pass'") );
+
+        if($result!=NULL)
+        {
+            return $result;
+        }
+        else
+        {
+           // throw new HttpException(400, "Invalid Credentials");
+        }
+    }
+
 }
