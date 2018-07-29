@@ -175,6 +175,16 @@ return [
                     'url'  => '/service-management',
                 ],
 
+                [
+                    'text' => 'Quote',
+                    'url'  => '/quote-management',
+                ],
+
+                [
+                    'text' => 'Book',
+                    'url'  => '/book-management',
+                ],
+
             ],
         ],
         'LABELS',

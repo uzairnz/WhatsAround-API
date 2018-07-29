@@ -1,53 +1,53 @@
-@extends('quote-mgmt.base')
+@extends('book-mgmt.base')
 
 @section('action-content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Add new Quote</div>
+                <div class="panel-heading">Add new Booking</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('quote-management.store') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('book-management.store') }}">
                         {{ csrf_field() }}
 
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="price" class="col-md-4 control-label">Price</label>
+                        <div class="form-group{{ $errors->has('user_id') ? ' has-error' : '' }}">
+                            <label for="user_id" class="col-md-4 control-label">User Id</label>
 
                             <div class="col-md-6">
-                                <input id="price" type="number" class="form-control" name="price" value="{{ old('price') }}" required>
+                                <input id="user_id" type="text" class="form-control" name="user_id" value="{{ old('user_id') }}" required>
 
-                                @if ($errors->has('price'))
+                                @if ($errors->has('user_id'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('price') }}</strong>
+                                        <strong>{{ $errors->first('user_id') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
-                            <label for="description" class="col-md-4 control-label">Description</label>
+                        <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
+                            <label for="status" class="col-md-4 control-label">Status</label>
 
                             <div class="col-md-6">
-                                <input id="description" type="text" class="form-control" name="description" value="{{ old('description') }}" required>
+                                <input id="status" type="text" class="form-control" name="status" value="{{ old('status') }}" required>
 
-                                @if ($errors->has('description'))
+                                @if ($errors->has('status'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('description') }}</strong>
+                                        <strong>{{ $errors->first('status') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('service_id') ? ' has-error' : '' }}">
-                            <label for="service_id" class="col-md-4 control-label">Service Id</label>
+                        <div class="form-group{{ $errors->has('quote_id') ? ' has-error' : '' }}">
+                            <label for="quote_id" class="col-md-4 control-label">Quote Id</label>
 
                             <div class="col-md-6">
-                                <input id="service_id" type="text" class="form-control" name="service_id" value="{{ old('service_id') }}" required>
+                                <input id="quote_id" type="text" class="form-control" name="quote_id" value="{{ old('quote_id') }}" required>
 
-                                @if ($errors->has('service_id'))
+                                @if ($errors->has('quote_id'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('service_id') }}</strong>
+                                        <strong>{{ $errors->first('quote_id') }}</strong>
                                     </span>
                                 @endif
                             </div>

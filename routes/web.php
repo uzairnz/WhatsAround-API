@@ -38,6 +38,9 @@ Route::resource('service-management', 'ServiceManagementController');
 Route::post('quote-management/search', 'QuoteManagementController@search')->name('quote-management.search');
 Route::resource('quote-management', 'QuoteManagementController');
 
+Route::post('book-management/search', 'BookManagementController@search')->name('book-management.search');
+Route::resource('book-management', 'BookManagementController');
+
 
 Auth::routes();
 
