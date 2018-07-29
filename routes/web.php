@@ -31,6 +31,14 @@ Route::resource('user-management', 'UserManagementController');
 Route::post('partner-management/search', 'PartnerManagementController@search')->name('partner-management.search');
 Route::resource('partner-management', 'PartnerManagementController');
 
+
+Route::post('service-management/search', 'ServiceManagementController@search')->name('service-management.search');
+Route::resource('service-management', 'ServiceManagementController');
+
+Route::post('quote-management/search', 'QuoteManagementController@search')->name('quote-management.search');
+Route::resource('quote-management', 'QuoteManagementController');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

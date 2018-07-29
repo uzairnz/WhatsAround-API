@@ -169,6 +169,12 @@ return [
                     'text' => 'Partner',
                     'url'  => '/partner-management',
                 ],
+
+                [
+                    'text' => 'Service',
+                    'url'  => '/service-management',
+                ],
+
             ],
         ],
         'LABELS',
