@@ -87,4 +87,11 @@ class BookController extends Controller
             'message' => 'Booked Service deleted',
         ], 200);
     }
+
+    public function showing($id)
+    {
+        $result = DB::Select('select * from books where user_id = ?', [$id]);
+
+        return $result;
+    }
 }

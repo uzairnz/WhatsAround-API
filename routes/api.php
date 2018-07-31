@@ -100,7 +100,7 @@ Route::delete('quote/{quote_id}', 'QuoteController@destroy');
 
 
 /*
- Service Routes
+ Book Routes
  */
 Route::get('book', 'BookController@index');
 
@@ -111,5 +111,7 @@ Route::post('book', 'BookController@store');
 Route::put('book/{book_id}', 'BookController@update');
 
 Route::delete('book/{book_id}', 'BookController@destroy');
+
+Route::get('booked/{book_id}', 'BookController@showing');
 
 

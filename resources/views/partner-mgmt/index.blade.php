@@ -19,18 +19,18 @@
         <div class="col-sm-6"></div>
         <div class="col-sm-6"></div>
       </div>
-      <form method="POST" action="{{ route('partner-management.search') }}">
-         {{ csrf_field() }}
-         @component('layouts.search', ['title' => 'Search'])
-          @component('layouts.two-cols-search-row', ['items' => ['partner_id', 'name'],
-          'oldVals' => [isset($searchingVals) ? $searchingVals['partner_id'] : '', isset($searchingVals) ? $searchingVals['name'] : '']])
-          @endcomponent
-          </br>
-          @component('layouts.two-cols-search-row', ['items' => ['Last Name', 'Department'],
-          'oldVals' => [isset($searchingVals) ? $searchingVals['lastname'] : '', isset($searchingVals) ? $searchingVals['department'] : '']])
-          @endcomponent
-        @endcomponent
-      </form>
+      {{--<form method="POST" action="{{ route('partner-management.search') }}">--}}
+         {{--{{ csrf_field() }}--}}
+         {{--@component('layouts.search', ['title' => 'Search'])--}}
+          {{--@component('layouts.two-cols-search-row', ['items' => ['partner_id', 'name'],--}}
+          {{--'oldVals' => [isset($searchingVals) ? $searchingVals['partner_id'] : '', isset($searchingVals) ? $searchingVals['name'] : '']])--}}
+          {{--@endcomponent--}}
+          {{--</br>--}}
+          {{--@component('layouts.two-cols-search-row', ['items' => ['Last Name', 'Department'],--}}
+          {{--'oldVals' => [isset($searchingVals) ? $searchingVals['lastname'] : '', isset($searchingVals) ? $searchingVals['department'] : '']])--}}
+          {{--@endcomponent--}}
+        {{--@endcomponent--}}
+      {{--</form>--}}
     <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
       <div class="row">
         <div class="col-sm-12">
