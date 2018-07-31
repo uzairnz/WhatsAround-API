@@ -114,4 +114,6 @@ Route::delete('book/{book_id}', 'BookController@destroy');
 
 Route::get('booked/{book_id}', 'BookController@showing');
 
+Route::get('booking/{book_id}', 'BookController@sholay');
+
 

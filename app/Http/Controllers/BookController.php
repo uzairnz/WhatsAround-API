@@ -94,4 +94,13 @@ class BookController extends Controller
 
         return $result;
     }
+
+    public function sholay($id)
+    {
+        $result = DB::Select('select * from books where partner_id = ?', [$id]);
+
+        return $result;
+    }
+
+
 }
